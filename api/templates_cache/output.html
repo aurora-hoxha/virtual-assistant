@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+
+        .container {
+            display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-gap: 50px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            font-family: 'Baloo Paaji 2', cursive;
+        }
+
+        .card {
+            background-color: #222831;
+            height: 37rem;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
+        .card__name {
+            margin-top: 15px;
+            font-size: 1.5em;
+        }
+
+        .card__image {
+            height: 160px;
+            width: 160px;
+            border-radius: 50%;
+            border: 5px solid #272133;
+            margin-top: 20px;
+            box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
+        }
+
+
+        .draw-border {
+            box-shadow: inset 0 0 0 4px #58cdd1;
+            color: #58afd1;
+            -webkit-transition: color 0.25s 0.0833333333s;
+            transition: color 0.25s 0.0833333333s;
+            position: relative;
+        }
+
+        .draw-border::before,
+        .draw-border::after {
+            border: 0 solid transparent;
+            box-sizing: border-box;
+            content: '';
+            pointer-events: none;
+            position: absolute;
+            width: 0rem;
+            height: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .draw-border::before {
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+        }
+
+        .draw-border::after {
+            border-top-width: 4px;
+            border-right-width: 4px;
+        }
+
+        .draw-border:hover {
+            color: #ffe593;
+        }
+
+        .draw-border:hover::before,
+        .draw-border:hover::after {
+            border-color: #eb196e;
+            -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+            transition: border-color 0s, width 0.25s, height 0.25s;
+            width: 100%;
+            height: 100%;
+        }
+
+        .draw-border:hover::before {
+            -webkit-transition-delay: 0s, 0s, 0.25s;
+            transition-delay: 0s, 0s, 0.25s;
+        }
+
+        .draw-border:hover::after {
+            -webkit-transition-delay: 0s, 0.25s, 0s;
+            transition-delay: 0s, 0.25s, 0s;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1.5;
+            font: 700 1.2rem 'Roboto Slab', sans-serif;
+            padding: 0.75em 2em;
+            letter-spacing: 0.05rem;
+            margin: 1em;
+            width: 13rem;
+        }
+
+        .btn:focus {
+            outline: 2px dotted #55d7dc;
+        }
+
+
+        .social-icons {
+            padding: 0;
+            list-style: none;
+            margin: 1em;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin: 0.15em;
+            position: relative;
+            font-size: 1em;
+        }
+
+        .social-icons i {
+            color: #fff;
+            position: absolute;
+            top: 0.95em;
+            left: 0.96em;
+            transition: all 265ms ease-out;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons a:before {
+            transform: scale(1);
+            -ms-transform: scale(1);
+            -webkit-transform: scale(1);
+            content: " ";
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            display: block;
+            background: linear-gradient(45deg, #ff003c, #c648c8);
+            transition: all 265ms ease-out;
+        }
+
+        .social-icons a:hover:before {
+            transform: scale(0);
+            transition: all 265ms ease-in;
+        }
+
+        .social-icons a:hover i {
+            transform: scale(2.2);
+            -ms-transform: scale(2.2);
+            -webkit-transform: scale(2.2);
+            color: #ff003c;
+            background: -webkit-linear-gradient(45deg, #ff003c, #c648c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 265ms ease-in;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            font-size: 1.2em;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/11032926_1049846535031474_260957621_a.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=2-B2Wc4TwfcAX_dSa82&amp;oh=923ef83f4f6a398ffbbb05475deaefc2&amp;oe=5F9EDD7A"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalriri
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        0
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalriri"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalriri"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/23823812_189461164953008_8827187047832748032_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=KfgEzJtF6ZkAX_DthR1&amp;oh=d50c15b64a12664ff7fc69edd8100d16&amp;oe=5F9D950F"
+             alt="Person" class="card__image">
+        <p class="card__name">Rihanna - Badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanna.thick
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        1
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanna.thick"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanna.thick"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/13686938_168342430269114_1032584411_a.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=2uYgmqJ-0DUAX9pR6RX&amp;oh=14adda9e6870770b0033a8e6d3a41410&amp;oe=5F9D2A3E"
+             alt="Person" class="card__image">
+        <p class="card__name">RIHANNA &amp; DRAKE - AUBRIH ❤️</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalririchampagnepapi
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        2
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalririchampagnepapi"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalririchampagnepapi"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119955314_817614452326361_1203656934291011046_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=xmsYmFPqhiIAX8eatv5&amp;oh=7be9abc2d4d29b6e8a0f8cdb3e7470e7&amp;oe=5F9BEFC1"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihsnap
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        3
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihsnap"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihsnap"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120276032_388252658839667_3525059873800887094_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=s2TxWWslx0MAX-vJzXK&amp;oh=f71c1d48f04a14c58cae20e7be1212d6&amp;oe=5F9EDB7D"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanna.carihbean
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        4
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanna.carihbean"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanna.carihbean"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120457418_941580873002518_6694383268674242534_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Ooq8Q5rlf3oAX82qEBY&amp;oh=d8cba0585a9ecf166fddc070964291e5&amp;oe=5F9F7B74"
+             alt="Person" class="card__image">
+        <p class="card__name">𝕭𝖆𝖉𝖌𝖆𝖑𝖗𝖎𝖗𝖎</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                bajanriih
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        5
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/bajanriih"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/bajanriih"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120339503_355340748925278_4114351809301424441_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=q7SW9uUTM_kAX9r0D3D&amp;oh=86f1b92ce132a1e931ab7515bbd5ddfe&amp;oe=5F9F6B6C"
+             alt="Person" class="card__image">
+        <p class="card__name">Rihanna♀</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                bad_____galriri
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        6
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/bad_____galriri"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/bad_____galriri"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/118515180_204606860998082_5404567867652544017_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=r1rXErqXUlMAX8UXhpM&amp;oh=cedfbbe510dc2571e568e31f02c6124e&amp;oe=5F9F1F0E"
+             alt="Person" class="card__image">
+        <p class="card__name">𝖇𝖆𝖉𝖌𝖆𝖑𝖗𝖎𝖗𝖎</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                malu_vibes
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        7
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/malu_vibes"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/malu_vibes"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/69451982_2503900303172647_1141223405261946880_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Xn8v1iW3sMsAX-Iy0t2&amp;oh=98770260e54a02a1743de018186b80b6&amp;oe=5F9C84C5"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihsworld
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        8
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihsworld"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihsworld"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/116788814_290833292175400_4727522506842035774_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=alnOnajy3OsAX9b-A45&amp;oh=fd2985e10f22d93f020b4e8698a988ac&amp;oe=5F9F9B91"
+             alt="Person" class="card__image">
+        <p class="card__name">RIHANNA HOT SEXY SNAPS</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalriri_snaps
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        9
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalriri_snaps"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalriri_snaps"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120204044_333126721101366_2382406814779022404_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=KQ1hLJQZuSEAX846dEp&amp;oh=4cc7b900e5ae9533659b1346bc22938c&amp;oe=5F9F87D0"
+             alt="Person" class="card__image">
+        <p class="card__name">Rihanna💄</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalririfantr
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        10
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalririfantr"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalririfantr"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119705657_334678371284696_4474773448855066730_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Qfn3tqTESeQAX_sMHWf&amp;oh=82027201d73d17745d236610307d405d&amp;oe=5F9BEBED"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                endlessrobyn
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        11
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/endlessrobyn"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/endlessrobyn"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/100989254_261025868470805_43916530227871744_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=lZL_cG7UP0IAX8V22t2&amp;oh=f299c986a0394fe77d0e8d33558021c7&amp;oe=5F9C5D50"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri  🦋</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rialfenty
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        12
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rialfenty"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rialfenty"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/118727028_377766486581399_7290529150860793549_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=6OYFUKBZjGYAX_lpAwT&amp;oh=65f7d30b4cc5740a0c231999d20f5c95&amp;oe=5F9DD35A"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalririxfan
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        13
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalririxfan"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalririxfan"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120202394_678604322757198_4670222823538088343_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=o3Qs-Nb5UZgAX_U9cis&amp;oh=16b4a735670ae23dc48e07b36947daa0&amp;oe=5F9EA31A"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                robynsaucy
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        14
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/robynsaucy"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/robynsaucy"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/117232375_800204390717884_4833822569880507886_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Jwz9Id6LbX8AX8Okeby&amp;oh=ff6141d314270b82857807d9f5e2e61c&amp;oe=5F9D73E6"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanayvy
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        15
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanayvy"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanayvy"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119970281_3238575479572850_8483496779430679520_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=C6myVtPsgJYAX8s0TrR&amp;oh=e1039ed7305f07f2164305a531bdd921&amp;oe=5F9BE9CA"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                vidsforih
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        16
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/vidsforih"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/vidsforih"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/20398570_138877770037689_9087008414344675328_a.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=yhZjjVwYdZgAX8wyxp6&amp;oh=daba1678121c513f40b91ffb54ce0afe&amp;oe=5F9E154B"
+             alt="Person" class="card__image">
+        <p class="card__name">@badgalriri Fanpage 😘🤗</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanna._.edits
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        17
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanna._.edits"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanna._.edits"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119108252_416116132698674_8930664491256288260_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=6uOSl7IYzZgAX-jFZGq&amp;oh=3b52ba3d4e88a698932d3bb730f6283f&amp;oe=5F9DE280"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                throwbackgalriri
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        18
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/throwbackgalriri"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/throwbackgalriri"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/80824489_2508260466055401_3680276507218935808_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=VFnnqblJ_IMAX82Kf_8&amp;oh=d55d2da72f46e80bedbfe21ced17fc2b&amp;oe=5F9DC132"
+             alt="Person" class="card__image">
+        <p class="card__name">Rihanna Edits❤️</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalririey
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        19
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalririey"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalririey"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119561030_1029196377523863_137758895193847450_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=jUbiRewZOpQAX8mj30j&amp;oh=153d2661106b42d64ff158a448eccf67&amp;oe=5F9D03AA"
+             alt="Person" class="card__image">
+        <p class="card__name">Rihhanna😍❤️🤞👸</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalriri_fan_page__
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        20
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalriri_fan_page__"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalriri_fan_page__"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/92099925_2955793254442049_8545053227433852928_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=inHir4_sunQAX95LZIT&amp;oh=6de6c03bd4113e73d925ebb5b49da103&amp;oe=5F9CB926"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                ririycherr
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        21
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/ririycherr"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/ririycherr"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/118295251_158790065793820_3974687565569063684_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=cD1-TydPazoAX8Mms1R&amp;oh=cc9d3c92088da897e0f3850a3ff5a1a1&amp;oe=5F9BD1A1"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihannasvg
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        22
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihannasvg"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihannasvg"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119568307_263341901705970_343552514392490708_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=I_g2CbiAeqsAX-7oV9G&amp;oh=03210145b1f9544724dc4e6cda561bd2&amp;oe=5F9EEED3"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihannasnapchat
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        23
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihannasnapchat"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihannasnapchat"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/37648599_1119534111530972_4892435145665019904_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=YekLf0YsYDAAX8Ce25P&amp;oh=8ff6e1b18f7a87821c8c12af1455b5a6&amp;oe=5F9CAB52"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri ❤️</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                robynsexy
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        24
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/robynsexy"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/robynsexy"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/93430262_623423018258456_2695260486986891264_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=JeFcPkcdaswAX-8Q84d&amp;oh=8c9cf59e46fda83e99797130b9789c23&amp;oe=5F9CFF24"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri | fanpage</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihkisss
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        25
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihkisss"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihkisss"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/95014965_693471731418010_4368462986822549504_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=EHFWJFAeTJIAX_DBa_o&amp;oh=a2d007ca2318db1c12a393debc2656e4&amp;oe=5F9EF1CB"
+             alt="Person" class="card__image">
+        <p class="card__name">BadGalRiRi</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanna.ig
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        26
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanna.ig"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanna.ig"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120128998_698814294070320_9124541419937516425_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=N-HZPnEgPNUAX8D85z6&amp;oh=e5bf9891c416832b7e153f50fa73cbe4&amp;oe=5F9F4458"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                roblox.rihanna
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        27
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/roblox.rihanna"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/roblox.rihanna"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/12269718_506878879489963_751511108_a.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=ShhyUOgWSsAAX9ivm10&amp;oh=ac1a547dfbad020d331b152385bcaebe&amp;oe=5F9DA21A"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihannaslyfe
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        28
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihannaslyfe"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihannaslyfe"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/52622109_939208546281477_4499606454541484032_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=0YZfqUc7ZKMAX_wZVrG&amp;oh=84c52dd0ab00794aab5be8dbeb3ce7df&amp;oe=5F9D4C2C"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanna.memes
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        29
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanna.memes"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanna.memes"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/97920878_277643523408690_5035498672343744512_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=WyvDD15MTs4AX-ne7LO&amp;oh=6b572b868b2e0b08a1b25faf40b88215&amp;oe=5F9E5BBB"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                realrukkyrose
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        30
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/realrukkyrose"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/realrukkyrose"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/116870542_1386412141552103_6807894485071828185_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=WhRbZV3WdMIAX9Y6eBn&amp;oh=fc57bfcb4671b9056e3c4793e88a27a9&amp;oe=5F9DFF7A"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                mylove_riri
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        31
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/mylove_riri"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/mylove_riri"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/26265821_816898598498341_6263305388477644800_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=kh9Kvta5fnEAX8I0XMd&amp;oh=03207f93e42a5b24bcb70d3fa37f709e&amp;oe=5F9E5655"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri &amp; Shakira✨</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                shakira_and_rihanna_
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        32
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/shakira_and_rihanna_"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/shakira_and_rihanna_"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120507416_798093261009048_6961193963041108737_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Lr1PS9B3ZHQAX8fvvjE&amp;oh=98c718995bcfa7c9caa88ec91e041ead&amp;oe=5F9BE9AA"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                didrihanna
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        33
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/didrihanna"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/didrihanna"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120132016_1048108905620357_7079318967437001192_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=npkgtM81n10AX8719g-&amp;oh=3c1923129ac6efe5ab1aa7587e71bbd6&amp;oe=5F9E4B98"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                aylen8769
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        34
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/aylen8769"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/aylen8769"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/118372548_597508254270217_6503402984010768655_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Oa0Od-W_kqQAX_eIQwR&amp;oh=a1d265a2ef3ef0b9362baaf0cd91b7c5&amp;oe=5F9C1316"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                forevarobz
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        35
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/forevarobz"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/forevarobz"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/116836153_328771238310235_3718832335210283800_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=TCNeqrMNKtYAX-6BHvy&amp;oh=fe803d22f0de5dfec8bf1b30a8ced2b7&amp;oe=5F9CEA67"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                rihanna_inspire
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        36
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/rihanna_inspire"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/rihanna_inspire"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/116473519_2685865428397969_1493560388249121843_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=QEpu3i18VUUAX9rPiGO&amp;oh=fb40c99459674d5ee9937139b5104556&amp;oe=5F9E2945"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                reaonnaa
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        37
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/reaonnaa"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/reaonnaa"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/120091121_214044080063980_4168711432536333715_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=Uf2GOKpEdSoAX8oOGGG&amp;oh=75a8cb6e04f9a6d148cf0d09d0a245a4&amp;oe=5F9F8FA8"
+             alt="Person" class="card__image">
+        <p class="card__name">Bad_gal_riri😍</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                lil_miss_riri_
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        38
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/lil_miss_riri_"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/lil_miss_riri_"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/71515145_542538342954400_9096755017989226496_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=sD9RYcE1UWQAX83kvZ0&amp;oh=b645bf95253e83fc0c926b37aff6c00a&amp;oe=5F9EEC81"
+             alt="Person" class="card__image">
+        <p class="card__name">badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                slayrihhh
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        39
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/slayrihhh"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/slayrihhh"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/18879415_133882940500054_6096121505853210624_a.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=NRysoKfPVksAX8Ad1EX&amp;oh=89e77236486a72ed464bcf4067285608&amp;oe=5F9C7AF6"
+             alt="Person" class="card__image">
+        <p class="card__name">@badgalriri follows</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalsnavy
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        40
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalsnavy"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalsnavy"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+
+    <div class="card">
+        <img src="https://instagram.ftia1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/118704984_1215314692168871_7919525876704908461_n.jpg?_nc_ht=instagram.ftia1-1.fna.fbcdn.net&amp;_nc_ohc=VX7RMtHR20oAX8pYrAp&amp;oh=0a628302b484ec0e0a56952941648496&amp;oe=5F9EF0CF"
+             alt="Person" class="card__image">
+        <p class="card__name">Badgalriri</p>
+        <div class="grid-container">
+
+            <div class="grid-child-posts">
+                badgalriri___85
+            </div>
+
+            <div class="grid-child-followers">
+                Private == False
+            </div>
+
+        </div>
+        41
+        <ul class="social-icons">
+            <li><a href="https://www.instagram.com/badgalriri___85"  target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+        </ul>
+        <a href="https://www.instagram.com/badgalriri___85"  target="_blank">
+            <button class="btn draw-border">Follow</button>
+        </a>
+
+        <button class="btn draw-border">Message</button>
+
+    </div>
+    
+</div>
+
+
+</body>
+</html>
